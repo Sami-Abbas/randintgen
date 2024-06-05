@@ -44,4 +44,4 @@ jobs:
       
       - name: Run Docker container
         run: |
-          docker run -ti -p 9090:9090 samiabbas09/randinter:latest
+          docker run -d -p 9090:9090 samiabbas09/randinter:latest

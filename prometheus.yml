@@ -1,0 +1,11 @@
+global:
+  scrape_interval: 60s
+remote_write:
+  - url: https://prometheus-prod-13-prod-us-east-0.grafana.net/api/prom/push
+    basic_auth:
+      username: 1618389
+      password: glc_eyJvIjoiMTE0MjUyOCIsIm4iOiJzdGFjay05NTEzNTAtaW50ZWdyYXRpb24tMTIzNCIsImsiOiI0cnAxOG9OczU4YmdTOGdONjNPdTFINUIiLCJtIjp7InIiOiJwcm9kLXVzLWVhc3QtMCJ9fQ==
+scrape_configs:
+  - job_name: node
+    static_configs:
+      - targets: ["localhost:9090"]
