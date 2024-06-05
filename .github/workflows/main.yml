@@ -41,3 +41,7 @@ jobs:
           password: ${{ secrets.Samireza09 }}
           repository: samiabbas09/randinter:latest
           tag_with_ref: true
+      
+      - name: Run Docker container
+        run: |
+          docker run -d -p 9090:9090 samiabbas09/randinter:latest
