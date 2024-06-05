@@ -1,0 +1,43 @@
+name: Prometheus CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Build and Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3'
+
+      - name: Install dependencies
+        run: |
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: |
+          # Add commands to run tests here
+
+      - name: Build Docker image
+        run: |
+          docker build -t samiabbas09/randinter:latest .
+
+      - name: Push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          username: ${{ secrets.samiabbas09 }}
+          password: ${{ secrets.Samireza09 }}
+          repository: samiabbas09/randinter:latest
+          tag_with_ref: true
